@@ -114,8 +114,26 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     
     func didBegin(_ contact: SKPhysicsContact) {
+        let nodeA = contact.bodyA.node
+        let nodeB = contact.bodyB.node
+//        print("Something collided!")
         
-        print("Something collided!")
+                           
+         if (nodeA == nil || nodeB == nil)
+         {
+                   return
+         }
+
+         if(nodeA!.name == "flag" && nodeB!.name == "baba")
+         {
+                print("You won")
+         }
+        
+//        if(nodeA!.name == "baba" && nodeB!.name == "flag"){
+//            print("win")
+//        }
+//        
+        
     }
     
     override func update(_ currentTime: TimeInterval) {
