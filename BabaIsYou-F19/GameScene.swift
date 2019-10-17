@@ -48,7 +48,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 
               // flagblock---------------
                 self.flagBlock = self.childNode(withName: "flagblock") as! SKSpriteNode
-                self.flagBlock.physicsBody = SKPhysicsBody(rectangleOf: wallBlock.size)
+//                self.flagBlock.physicsBody = SKPhysicsBody(rectangleOf: wallBlock.size)
                 self.flagBlock.physicsBody?.affectedByGravity = false
                 self.flagBlock.physicsBody?.categoryBitMask = 256
         //        self.wallBlock.physicsBody?.collisionBitMask = 0
@@ -74,7 +74,38 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         
         
-        
+                 self.isBlock = self.childNode(withName: "isblock") as! SKSpriteNode
+                 self.isBlock.physicsBody = SKPhysicsBody(rectangleOf: isBlock.size)
+                 self.isBlock.physicsBody?.affectedByGravity = false
+                 self.isBlock.physicsBody?.categoryBitMask = 32
+                 self.isBlock.physicsBody?.collisionBitMask = 0
+                 self.isBlock.physicsBody?.contactTestBitMask = 0
+//                 self.isBlock = self.childNode(withName: "iblock") as! SKSpriteNode
+
+                self.isBlock.physicsBody = SKPhysicsBody(rectangleOf: isBlock.size)
+                self.isBlock.physicsBody?.affectedByGravity = false
+                self.isBlock.physicsBody?.categoryBitMask = 32
+                self.isBlock.physicsBody?.collisionBitMask = 0
+                self.isBlock.physicsBody?.contactTestBitMask = 0
+
+
+                self.winBlock = self.childNode(withName: "winblock") as! SKSpriteNode
+
+                self.winBlock.physicsBody = SKPhysicsBody(rectangleOf: isBlock.size)
+                self.winBlock.physicsBody?.affectedByGravity = false
+                self.winBlock.physicsBody?.categoryBitMask = 64
+        //        self.winBlock.physicsBody?.collisionBitMask = 0
+        //        self.winBlock.physicsBody?.contactTestBitMask = 0
+                
+                self.enumerateChildNodes(withName: "wall") {
+                    (node, stop) in
+                    let stick = node as! SKSpriteNode
+                    stick.physicsBody = SKPhysicsBody(rectangleOf: stick.size)
+                    stick.physicsBody?.affectedByGravity = false
+                    stick.physicsBody?.categoryBitMask = 128
+                    stick.physicsBody?.collisionBitMask = 0
+                }
+
         
                 
                         
